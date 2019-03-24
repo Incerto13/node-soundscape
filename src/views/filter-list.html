@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Serenity - Modern bootstrap website template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- styles -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="assets/css/flexslider.css" rel="stylesheet">
+  <link href="assets/css/docs.css" rel="stylesheet">
+  <link href="assets/css/prettyPhoto.css" rel="stylesheet">
+  <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/color/default.css" rel="stylesheet">
+
+  <!-- fav and touch icons -->
+  <link rel="shortcut icon" href="assets/ico/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+  <!-- =======================================================
+    Theme Name: Serenity
+    Theme URL: https://bootstrapmade.com/serenity-bootstrap-corporate-template/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+  <header>
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- logo -->
+          <a class="brand logo" href="index.html">
+			<img src="assets/img/logo.png" alt="" />
+			</a>
+          <!-- end logo -->
+          <!-- top menu -->
+          <div class="navigation">
+            <nav>
+              <ul class="nav topnav">
+                <li class="dropdown">
+                  <a href="index.html">Home</a>
+                </li>
+                <li class="dropdown">
+                  <a href="#">Features</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="overview.html">Overview</a></li>
+                    <li><a href="scaffolding.html">Scaffolding</a></li>
+                    <li><a href="base-css.html">Base CSS</a></li>
+                    <li><a href="components.html">Components</a></li>
+                    <li><a href="javascript.html">Javascripts</a></li>
+                    <li><a href="icons.html">More icons</a></li>
+                    <li class="dropdown"><a href="#">3rd level</a>
+                      <ul class="dropdown-menu sub-menu">
+                        <li><a href="#">Example menu</a></li>
+                        <li><a href="#">Example menu</a></li>
+                        <li><a href="#">Example menu</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#">Pages</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="pricingtable.html">Pricing table</a></li>
+                    <li><a href="fullwidth.html">Fullwidth</a></li>
+                    <li><a href="404.html">404</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown active">
+                  <a href="#">Portfolio</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="portfolio-2cols.html">Portfolio 2 columns</a></li>
+                    <li><a href="portfolio-3cols.html">Portfolio 3 columns</a></li>
+                    <li><a href="portfolio-4cols.html">Portfolio 4 columns</a></li>
+                    <li><a href="portfolio-detail.html">Portfolio detail</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#">Blog</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="blog_left_sidebar.html">Blog left sidebar</a></li>
+                    <li><a href="blog_right_sidebar.html">Blog right sidebar</a></li>
+                    <li><a href="post_left_sidebar.html">Post left sidebar</a></li>
+                    <li><a href="post_right_sidebar.html">Post right sidebar</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="contact.html">Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- end menu -->
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Subhead
+================================================== -->
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple list filter</title>
+  <link href="https://github.com/Kilian/sencss/raw/master/source/sen.css" rel="stylesheet" type="text/css">
+  <style>
+    body {
+      background:#fff
+      font-size:13px;
+    }
+    #wrap {
+      position:relative;
+      width:220px;
+      margin:50px auto 0;
+    }
+    #header{position:relative;line-height:1em;}
+    .filterform {
+      width:220px;
+      font-size:12px;
+      display:block;
+    }
+    .filterform input {
+      -moz-border-radius:5px;
+      border-radius:5px;
+      -webkit-border-radius:5px;
+    }
+   </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script>
+
+
+
+(function ($) {
+  // custom css expression for a case-insensitive contains()
+  jQuery.expr[':'].Contains = function(a,i,m){
+      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+  };
+
+
+  function listFilter(header, list) { // header is any element, list is an unordered list
+    // create and add the filter form to the header
+    var form = $("<form>").attr({"class":"filterform","action":"#"}),
+        input = $("<input>").attr({"class":"filterinput","type":"text"});
+    $(form).append(input).appendTo(header);
+
+    $(input)
+      .change( function () {
+        var filter = $(this).val();
+        if(filter) {
+          // this finds all links in a list that contain the input,
+          // and hide the ones not containing the input while showing the ones that do
+          $(list).find("a:not(:Contains(" + filter + "))").parent().slideUp();
+          $(list).find("a:Contains(" + filter + ")").parent().slideDown();
+        } else {
+          $(list).find("li").slideDown();
+        }
+        return false;
+      })
+    .keyup( function () {
+        // fire the above change event after every letter
+        $(this).change();
+    });
+  }
+
+
+  //ondomready
+  $(function () {
+    listFilter($("#header"), $("#list"));
+  });
+}(jQuery));
+
+  </script>
+
+</head>
+<body>
+<div id="wrap">
+  <h1 id="header">List of countries</h1>
+  <ul id="list">
+		<li><a href="#/australia/">Australia</a></li>
+		<li><a href="#/austria/">Austria</a></li>
+		<li><a href="#/belgium/">Belgium</a></li>
+		<li><a href="#/brazil/">Brazil</a></li>
+		<li><a href="#/canada/">Canada</a></li>
+		<li><a href="#/denmark/">Denmark</a></li>
+		<li><a href="#/finland/">Finland</a></li>
+		<li><a href="#/france/">France</a></li>
+		<li><a href="#/germany/">Germany</a></li>
+		<li><a href="#/greece/">Greece</a></li>
+		<li><a href="#/ireland/">Ireland</a></li>
+		<li><a href="#/israel/">Israel</a></li>
+		<li><a href="#/italy/">Italy</a></li>
+		<li><a href="#/japan/">Japan</a></li>
+		<li><a href="#/luxembourg/">Luxembourg</a></li>
+		<li><a href="#/mexico/">Mexico</a></li>
+		<li><a href="#/netherlands/">Netherlands</a></li>
+		<li><a href="#/norway/">Norway</a></li>
+		<li><a href="#/poland/">Poland</a></li>
+		<li><a href="#/portugal/">Portugal</a></li>
+		<li><a href="#/russia/">Russia</a></li>
+		<li><a href="#/spain/">Spain</a></li>
+		<li><a href="#/sweden/">Sweden</a></li>
+		<li><a href="#/switzerland/">Switzerland</a></li>
+		<li><a href="#/turkey/">Turkey</a></li>
+		<li><a href="#/united-kingdom/">United Kingdom</a></li>
+		<li><a href="#/united-states/">United States</a></li>
+	</ul>
+	
+</div>
+
+
+</body>
+</html>
+
+
+
+</body>
+
+</html>

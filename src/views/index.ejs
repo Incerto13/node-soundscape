@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="body">
+<head>
+  <meta charset="utf-8">
+  <title><%=title%></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- styles -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="assets/css/docs.css" rel="stylesheet">
+  <link href="assets/css/prettyPhoto.css" rel="stylesheet">
+  <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+  <link href="assets/css/flexslider.css" rel="stylesheet">
+  <link href="assets/css/sequence.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/color/default.css" rel="stylesheet">
+
+  <!-- fav and touch icons -->
+  <link rel="shortcut icon" href="assets/ico/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+
+<body class="body">
+  <header>
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- logo -->
+          <a class="brand logo" href="index.html"><img src="assets/img/logo.png" alt=""></a>
+          <!-- end logo -->
+          <!-- top menu -->
+          <div class="navigation">
+            <nav>
+              <ul class="nav topnav">
+                <li>          
+                  <a href="<%='/'%>">Home</a>
+               </li>
+                <%for (let i=0; i<nav.length; i++) {%>
+                <li>
+                  <a href="<%=nav[i].link%>"><%=nav[i].title%></a>
+                </li>
+                <%}%>
+            
+              </ul>
+            </nav>
+          </div>
+          <!-- End Navbar menu -->
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="intro">
+    <div class="jumbotron masthead">
+      <div class="container">
+        <!-- slider navigation -->
+        <div class="sequence-nav">
+          <div class="prev">
+            <span></span>
+          </div>
+          <div class="next">
+            <span></span>
+          </div>
+        </div>
+        <!-- end slider navigation -->
+        <div class="row">
+          <div class="span12">
+            <div id="slider_holder">
+              <div id="sequence">
+                <ul>
+                  <!-- Layer 1 -->
+                  <li>
+                    <div class="info animate-in">
+              
+                      <h3>Follow Your Favorite DJs</h3>
+                
+                    </div>
+                    <img class="slider_img animate-in" src="assets/img/slides/sequence/img-1.jpg" alt="">
+                  </li>
+                  <!-- Layer 2 -->
+                  <li>
+                    <div class="info">
+                 
+                      <h3>See Who's on Tour</h3>
+                   
+                    </div>
+                    <img class="slider_img" src="assets/img/slides/sequence/img-2.png" alt="">
+                  </li>
+                  <!-- Layer 3 -->
+                  <li>
+                    <div class="info">
+                     
+                      <h3>And When They're Coming to a Venue Near You</h3>
+                
+                    </div>
+                    <img class="slider_img" src="assets/img/slides/sequence/img-3.jpg" alt="">
+                     </li>
+                  <!-- Layer 4 -->
+                  <li>
+                    <div class="info">
+                 
+                      <h3>You're Very Welcome ;)</h3>
+                   
+                    </div>
+                    <img class="slider_img" src="assets/img/slides/sequence/img-4.jpg" alt="">
+                  </li>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- Sequence Slider::END-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="maincontent">
+   
+
+
+
+  </section>
+ 
+
+
+  <!-- JavaScript Library Files -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.easing.js"></script>
+  <script src="assets/js/google-code-prettify/prettify.js"></script>
+  <script src="assets/js/modernizr.js"></script>
+  <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/jquery.elastislide.js"></script>
+  <script src="assets/js/sequence/sequence.jquery-min.js"></script>
+  <script src="assets/js/sequence/setting.js"></script>
+  <script src="assets/js/jquery.prettyPhoto.js"></script>
+  <script src="assets/js/application.js"></script>
+  <script src="assets/js/jquery.flexslider.js"></script>
+  <script src="assets/js/hover/jquery-hover-effect.js"></script>
+  <script src="assets/js/hover/setting.js"></script>
+
+  <!-- Template Custom JavaScript File -->
+  <script src="assets/js/custom.js"></script>
+
+</body>
+</div>
+</html>
