@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 
 
 const app = express();
-const db = mongoose.connect('mongodb://localhost/deepHouse', {
+const db = mongoose.connect('mongodb://localhost/nodeSoundscape', {
   useCreateIndex: true,
   useNewUrlParser: true
 });
@@ -51,19 +51,28 @@ app.use('/events', eventRouter);
 app.get('/', (req, res) => {
   res.render('index', {
     nav,
-    title: 'Soundscape'
+    pageTitle: 'Soundscape',
+    path: '/',
   });
 });
 
-// app.use('/artists', artistRouter);
-// app.use('/events', eventRouter);
+/* ***** API Landing Page ***** */
+// HATEOAS - Self-Documenting Hyperlinks within the API
+app.get('/api', (req, res) => {
+  const artists = { name: 'artists', link: `http://${req.headers.host}/api/artists` };
+  const events = { name: 'events', link: `http://${req.headers.host}/api/events` };
+  res.json(
+    {
+      header: 'Welcome to the REST API for this site. Below are the major endpoints.',
+      endpoints: [artists, events],
+    }
+  );
+});
 
 /* ***** API Routing ***** */
-app.get('/api', (req, res) => {
-  res.send('Welcome to the Soundscape API!');
-});
 app.use('/api/artists', api_artistRouter);
 app.use('/api/events', api_eventRouter);
+
 
 app.listen(port, () => {
   debug(`listening on port ${chalk.green(port)}`);

@@ -1,0 +1,30 @@
+
+          <div class="nav-container">
+          <!-- logo -->
+          <div class="logo navbar">
+          <a href="/"><img src="/assets/img/rando_logo.png" alt=""></a>
+          </div>
+          <!-- end logo -->
+          <!-- top menu -->
+        <nav>
+           <div class="navbar">
+              <ul class="nav">
+                <li class="nav-list">          
+                  <a class=" <%= path === '/' ? 'active' : '' %>" href="/">Home</a>
+                </li>
+                <li class="nav-list">          
+                  <a class="<%= path === '/artists' ? 'active' : '' %>"  href="/artists">Artists</a>
+                </li>
+                <li class="nav-list">          
+                  <a class="<%= path === '/events' ? 'active' : '' %>"  href="/events">Events</a>
+                </li>
+                <li class="nav-list ">          
+                  <a href="/api">API</a>
+                </li>
+              </ul>
+          </div>
+        </nav>
+      </div>
+          
+
+     

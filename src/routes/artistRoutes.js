@@ -2,14 +2,15 @@ const express = require('express');
 const { MongoClient, ObjectID } = require('mongodb');
 const debug = require('debug')('app:artistRoutes');
 
+const url = 'mongodb://localhost/nodeSoundscape';
+const dbName = 'nodeSoundscape';
+
 
 const artistRouter = express.Router();
 
 function router(nav) {
   artistRouter.route('/')
     .get((req, res) => {
-      const url = 'mongodb://localhost/deepHouse';
-      const dbName = 'deepHouse';
 
       (async function mongo() {
         let client;
@@ -27,10 +28,11 @@ function router(nav) {
             'artistListView',
             {
               nav,
-              title: 'Soundscape',
+              pageTitle: 'Artist List',
               artists,
               countries,
-              country: null // initially null, need to define here for template logic
+              country: null, // initially null, need to define here for template logic
+              path: '/artists',
             }
           );
         } catch (err) {
@@ -47,9 +49,7 @@ function router(nav) {
       if (country === 'null' || country == undefined) {
         country = { $exists: true };
       }
-      const url = 'mongodb://localhost/deepHouse';
-      const dbName = 'deepHouse';
-      
+
       (async function mongo() {
         let client;
         try {
@@ -62,15 +62,17 @@ function router(nav) {
           const artists = await col.find({ country }).toArray(); // filter artists listed by country field
           const countries = await col.distinct('country'); // for drop-down list
           debug(req.query);
+          debug(`Artists: ${artists[0]}`);
 
           return res.render(
             'artistListView',
             {
               nav,
-              title: 'Soundscape',
+              pageTitle: 'Artist List',
               artists,
               countries,
-              country // to display relavent country in query result
+              country, // to display relavent country in query result
+              path: '/artists',
             }
           );
         } catch (err) {
@@ -83,8 +85,6 @@ function router(nav) {
   artistRouter.route('/:id')
     .get((req, res) => {
       const { id } = req.params;
-      const url = 'mongodb://localhost/deepHouse';
-      const dbName = 'deepHouse';
       
       (async function mongo() {
         let client;
@@ -102,8 +102,9 @@ function router(nav) {
             'artistView',
             {
               nav,
-              title: 'Soundscape',
-              artist
+              pageTitle: 'Artist View',
+              artist,
+              path: '/artists',
             }
           );
         } catch (err) {

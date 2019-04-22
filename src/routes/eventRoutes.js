@@ -3,13 +3,14 @@ const { MongoClient, ObjectID } = require('mongodb');
 const debug = require('debug')('app:eventRoutes');
 const dateFormat = require('dateformat');
 
+const url = 'mongodb://localhost/nodeSoundscape';
+const dbName = 'nodeSoundscape';
+
 const eventRouter = express.Router();
 
 function router(nav) {
   eventRouter.route('/')
     .get((req, res) => {
-      const url = 'mongodb://localhost/deepHouse';
-      const dbName = 'deepHouse';
 
       (async function mongo() {
         let client;
@@ -21,6 +22,7 @@ function router(nav) {
           const col = await db.collection('events');
 
           const events = await col.find().toArray(); // display all events
+          debug(events);
           const venues = await col.distinct('venue'); // for drop-down list
           const cities = await col.distinct('city');
           const countries = await col.distinct('country');
@@ -36,7 +38,7 @@ function router(nav) {
             'eventListView',
             {
               nav,
-              title: 'Soundscape',
+              pageTitle: 'Event List',
               events,
               venues,
               cities,
@@ -45,7 +47,8 @@ function router(nav) {
               venue: null, // initially null, need to define here for template logic
               city: null,
               country: null,
-              artist: null
+              artist: null,
+              path: '/events',
 
             }
           );
@@ -79,9 +82,6 @@ function router(nav) {
         artist = { $exists: true };
       }
       
-      const url = 'mongodb://localhost/deepHouse';
-      const dbName = 'deepHouse';
-      
       (async function mongo() {
         let client;
         try {
@@ -91,16 +91,22 @@ function router(nav) {
           const db = client.db(dbName);
           const col = await db.collection('events');
           
-          // filter artists listed by various fields
+          // payload: generate array of events filtered by selected categories
           const events = await col.find(
             {
               venue,
               city,
               country,
-              artists: artist
+              artists: artist,
             }
           )
             .toArray();
+            
+          debug(`Filtered Events: ${events[0]}`);
+          debug(`Filtered Venue: ${city}`);
+          debug(`Filtered Country: ${country}`);
+          debug(`Filtered Artist: ${artist}`);
+
           const venues = await col.distinct('venue'); // for drop-down list
           const cities = await col.distinct('city');
           const countries = await col.distinct('country');
@@ -116,7 +122,7 @@ function router(nav) {
             'eventListView',
             {
               nav,
-              title: 'Soundscape',
+              pageTitle: 'Event List',
               events,
               venues,
               cities,
@@ -126,7 +132,8 @@ function router(nav) {
               city,
               country,
               artist,
-              mytable: "<table cellpadding=\"0\" cellspacing=\"0\"><tbody><tr>"
+              mytable: "<table cellpadding=\"0\" cellspacing=\"0\"><tbody><tr>",
+              path: '/events',
 
             }
           );
@@ -140,8 +147,6 @@ function router(nav) {
   eventRouter.route('/:id')
     .get((req, res) => {
       const { id } = req.params;
-      const url = 'mongodb://localhost/deepHouse';
-      const dbName = 'deepHouse';
       
       (async function mongo() {
         let client;
@@ -153,14 +158,17 @@ function router(nav) {
           const col = await db.collection('events');
 
           const event = await col.findOne({ _id: new ObjectID(id) });
+          const newDate = dateFormat(event.date, 'fullDate');
+          event.date = newDate;
           debug(event);
        
           return res.render(
             'eventView',
             {
               nav,
-              title: 'Soundscape',
-              event
+              pageTitle: 'Event View',
+              event,
+              path: '/events',
             }
           );
         } catch (err) {
