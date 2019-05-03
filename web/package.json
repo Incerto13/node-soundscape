@@ -1,0 +1,46 @@
+{
+  "name": "node-soundscape",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "lint": "eslint app.js",
+    "lint-fix": "eslint app.js --fix",
+    "ejs-lint": "ejs-lint",
+    "ejs-lint-fix": "ejs-lint --fix",
+    "start": "./scripts/start.sh"
+  },
+  "author": "Akin Adekoya",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.2",
+    "dateformat": "^3.0.3",
+    "debug": "^4.1.1",
+    "ejs": "^2.6.1",
+    "ejs-lint": "^0.3.0",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "mongoclient": "^1.0.3",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.11",
+    "morgan": "^1.9.1"
+   
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "nodemon": "^1.18.10"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "PORT": 3000
+    }
+  }
+}

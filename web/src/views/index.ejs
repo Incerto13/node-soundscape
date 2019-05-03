@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title><%= pageTitle %></title>
+
+ <!-- Flex Slider Animation on Index Page -->
+<link href="assets/css/flexslider.css" rel="stylesheet">
+<link href="assets/css/sequence.css" rel="stylesheet">
+
+<link href="/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="body">
+  <header>
+<%- include('./includes/navbar.ejs') %>
+
+
+  </header>
+  <div class="slider-spacer">
+</div>
+<div class="main-content">
+  <section id="intro">
+    <div class="jumbotron masthead">
+      <div class="container">
+        <!-- slider navigation -->
+        <div class="sequence-nav">
+          <div class="prev">
+            <span></span>
+          </div>
+          <div class="next">
+            <span></span>
+          </div>
+        </div>
+        <!-- end slider navigation -->
+        <div class="row">
+          <div class="span12">
+            <div id="slider_holder">
+              <div id="sequence">
+                <ul style="color:black">
+                  <!-- Layer 1 -->
+                  <li>
+                    <div class="info animate-in">
+              
+                      <h3>Follow Your Favorite DJs</h3>
+                
+                    </div>
+                    <img class="slider_img animate-in" src="assets/img/slides/sequence/img-1.jpg" alt="">
+                  </li>
+                  <!-- Layer 2 -->
+                  <li>
+                    <div class="info">
+                 
+                      <h3>See Who's on Tour</h3>
+                   
+                    </div>
+                    <img class="slider_img" src="assets/img/slides/sequence/img-2.png" alt="">
+                  </li>
+                  <!-- Layer 3 -->
+                  <li>
+                    <div class="info">
+                     
+                      <h3>And When They're Coming to a Venue Near You</h3>
+                
+                    </div>
+                    <img class="slider_img" src="assets/img/slides/sequence/img-3.jpg" alt="">
+                     </li>
+                  <!-- Layer 4 -->
+                  <li>
+                    <div class="info">
+                 
+                      <h3>Welcome to Soundscape</h3>
+                   
+                    </div>
+                    <img class="slider_img" src="/assets/img/slides/sequence/img-4.jpg" alt="">
+                  </li>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- Sequence Slider::END-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+  <!-- JavaScript Library Files -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.easing.js"></script>
+  <script src="assets/js/google-code-prettify/prettify.js"></script>
+
+  <script src="assets/js/sequence/sequence.jquery-min.js"></script>
+  <script src="assets/js/sequence/setting.js"></script>
+ 
+  <script src="assets/js/jquery.flexslider.js"></script>
+  
+
+</body>
+</div>
+</html>
